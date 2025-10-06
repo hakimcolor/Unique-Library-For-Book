@@ -1,7 +1,7 @@
 import React from 'react';
-import { useLoaderData, useParams } from 'react-router';
+import { Link, useLoaderData, useParams } from 'react-router';
+import { FaArrowLeft } from 'react-icons/fa';
 
-// Helper for rating stars
 const StarRating = ({ rating }) => {
   const maxStars = 5;
   const fullStars = Math.floor(rating);
@@ -46,9 +46,9 @@ const StarRating = ({ rating }) => {
 const BookDetails = () => {
   const { id } = useParams();
   const bookID = parseInt(id);
-  const data = useLoaderData();
+  const datas = useLoaderData();
 
-  const book = data.find((bk) => bk.bookId === bookID);
+  const book = datas.find((bk) => bk.bookId === bookID);
 
   if (!book) {
     return (
@@ -119,6 +119,14 @@ const BookDetails = () => {
           </p>
         </div>
       </div>
+      <Link
+        to="/"
+        className="inline-flex items-center absolute gap-2 px-4 py-2 text-gray-700 
+                 hover:text-blue-600 hover:-translate-x-1 transition-all duration-200 mt-[-32px] md:mt-0 ml-[-39px] md:ml-0 "
+      >
+        <FaArrowLeft className="text-lg" />
+        <span className="font-medium">Back</span>
+      </Link>
     </div>
   );
 };
