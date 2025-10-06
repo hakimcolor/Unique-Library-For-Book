@@ -51,7 +51,7 @@ const Banner = () => {
         </button>
       </div>
 
-      <style jsx>{`
+      <style >{`
         @keyframes rgbColor {
           0% {
             color: rgb(255, 0, 0);
