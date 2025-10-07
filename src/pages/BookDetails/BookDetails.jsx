@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useLoaderData, useParams } from 'react-router';
 import { FaArrowLeft } from 'react-icons/fa';
+import { addtoDB } from '../../utilateiy/AddDB';
 
 const StarRating = ({ rating }) => {
   const maxStars = 5;
@@ -48,6 +49,8 @@ const BookDetails = () => {
   const bookID = parseInt(id);
   const datas = useLoaderData();
 
+  
+
   const book = datas.find((bk) => bk.bookId === bookID);
 
   if (!book) {
@@ -70,6 +73,9 @@ const BookDetails = () => {
     tags,
   } = book;
 
+const handelMark = id => {
+  addtoDB(id)
+}
   return (
     <div className="max-w-4xl mx-auto mt-8 p-8 bg-gradient-to-br from-indigo-50 via-white to-pink-50 shadow-2xl rounded-2xl flex flex-col md:flex-row gap-10">
       <div className="flex-shrink-0 flex flex-col items-center justify-center">
@@ -116,9 +122,22 @@ const BookDetails = () => {
           <h2 className="text-2xl font-bold text-indigo-700 mb-2">Review</h2>
           <p className="text-gray-700 text-lg italic border-l-4 border-indigo-200 pl-4">
             {review}
-          </p>
+          </p>{' '}
+          <div className="space-x-5 mt-5">
+            <button
+              onClick={()=>handelMark(id)}
+              className="bg-blue-500 hover:bg-blue-600 text-white font-medium px-4 py-2 w-32 rounded-xl shadow-md transition duration-200 cursor-pointer"
+            >
+              Read
+            </button>
+
+            <button className="bg-pink-500 hover:bg-pink-600 text-white font-medium px-4 py-2 w-32 rounded-xl shadow-md transition duration-200 cursor-pointer">
+              Wishlist
+            </button>
+          </div>
         </div>
       </div>
+
       <Link
         to="/"
         className="inline-flex items-center absolute gap-2 px-4 py-2 text-gray-700 

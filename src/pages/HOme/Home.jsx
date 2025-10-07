@@ -5,7 +5,7 @@ import { useLoaderData } from 'react-router'
 
 const Home = () => {
   const boodData = useLoaderData();
-  console.log(boodData);
+  // console.log(boodData);
 
   
   

@@ -2,7 +2,7 @@ import React from 'react'
 import { FaStarHalfAlt } from 'react-icons/fa';
 import { Link } from 'react-router';
 const Book = ({ singleBook }) => {
-  console.log(singleBook);
+  // console.log(singleBook);
   const {
     bookId,
     bookName,
@@ -16,15 +16,15 @@ const Book = ({ singleBook }) => {
   } = singleBook;
   return (
     <Link to={`/BookDetails/${bookId}`}>
-      <div className="card border-2 border-gray-300 w-80 md:w-80 lg:80 2xl:w-96 p-4   shadow-sm ">
+      <div className="card border-2 border-gray-300 w-80 md:w-80 lg:80 2xl:w-96 p-4   shadow-sm h-[600px]">
         <figure className=" bg-gray-100 rounded-3xl ">
           <img className=" h-[300px]  w-[200px] p-4" src={image} alt="Shoes" />
         </figure>
         <div className="card-body">
           {' '}
           <div className=" text-sm  ml-1 space-x-10 text-green-500  font-semibold  ">
-            {tags.map((k) => (
-              <button className="p-2 bg-gray-100 rounded-xl">{k}</button>
+            {tags.map((k ,index) => (
+              <button key={index} className="p-2 bg-gray-100 rounded-xl">{k}</button>
             ))}
           </div>
           <h2 className="card-title Playfair-Display text-xl md:text-2xl lg:text-3xl mt-3">

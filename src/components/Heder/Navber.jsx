@@ -2,11 +2,21 @@ import React from 'react'
 import { Link } from 'react-router';
 
 const Navber = () => {
-  const Links = <>
-    <Link to='/'><li className='m-2'>Home</li></Link>
-    <Link to='/about'>  <li className='m-2'>About</li></Link>
-  
-  </>
+  const Links = (
+    <>
+      {' '}
+      <Link to="/">
+        <li className="m-2">Home</li>
+      </Link>
+      <Link to="/about">
+        {' '}
+        <li className="m-2">About</li>
+      </Link>
+      <Link to="/readList">
+        <li className="m-2">ReadList</li>
+      </Link>
+    </>
+  );
 
   return (
     <div className="navbar ">
@@ -34,8 +44,8 @@ const Navber = () => {
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
             {Links}
-           
             
+           
           </ul>
         </div>
         <a className="btn btn-ghost text-xl">UniQue_Book</a>
